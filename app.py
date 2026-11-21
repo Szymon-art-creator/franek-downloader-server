@@ -11,12 +11,20 @@ from urllib.parse import urlsplit
 
 import yt_dlp
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('franek')
 app = FastAPI(title='Franek Downloader API')
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['https://drugie-dno.surge.sh'],
+    allow_methods=['POST', 'GET'],
+    allow_headers=['Content-Type'],
+    expose_headers=['Content-Disposition', 'Content-Length'],
+)
 MAX_DURATION = 3600
 MAX_FILE_BYTES = 250 * 1024 * 1024
 semaphore = asyncio.Semaphore(1)

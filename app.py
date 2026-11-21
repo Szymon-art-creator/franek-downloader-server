@@ -20,7 +20,7 @@ logger = logging.getLogger('franek')
 app = FastAPI(title='Franek Downloader API')
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://drugie-dno.surge.sh'],
+    allow_origins=['https://drugie-dno.surge.sh', 'https://szymon-art-creator.github.io'],
     allow_methods=['POST', 'GET'],
     allow_headers=['Content-Type'],
     expose_headers=['Content-Disposition', 'Content-Length'],

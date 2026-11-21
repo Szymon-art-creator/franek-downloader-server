@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 
 import yt_dlp
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.background import BackgroundTask
+from fastapi import BackgroundTasks
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
